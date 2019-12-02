@@ -1,0 +1,2 @@
+class CouchesController < ApplicationController
+end

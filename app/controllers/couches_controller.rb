@@ -27,6 +27,6 @@ class CouchesController < ApplicationController
   end
 
   def couches_params
-    params.require(:couch).permit(:address, :price)
+    params.require(:couch).permit(:address, :price, :photo)
   end
 end

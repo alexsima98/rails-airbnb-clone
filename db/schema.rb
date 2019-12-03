@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_135935) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
-    t.string "picture"
+    t.string "photo"
     t.index ["user_id"], name: "index_couches_on_user_id"
   end
 

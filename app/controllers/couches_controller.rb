@@ -12,6 +12,7 @@ class CouchesController < ApplicationController
   end
 
   def create
+
     @couch = Couch.new(couches_params)
     # remember to change to show
     @couch.user = current_user

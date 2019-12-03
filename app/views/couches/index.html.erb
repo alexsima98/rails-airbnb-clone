@@ -1,7 +1,8 @@
 
 
 <% @couches.each do |couch| %>
-  <p> <%= link_to couch.address, couch_path(couch) %> </p>
+  <p> <%= link_to couch.title, couch_path(couch) %> </p>
+  <p> <%= couch.address %> </p>
   <p> <%= couch.price %> </p>
 <% end %>
 

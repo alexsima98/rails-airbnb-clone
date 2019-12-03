@@ -1,7 +1,10 @@
 <div class="container p-2">
   <%= simple_form_for([@user, @couch]) do |f| %>
-   <%= f.input :address %>
-   <%= f.input :price %>
-   <%= f.submit "Add a couch", class:"btn btn-flat" %>
+    <%= f.input :title %>
+    <%= f.input :address %>
+    <%= f.input :price %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.submit "Add a couch", class:"btn btn-flat" %>
   <% end %>
 </div>

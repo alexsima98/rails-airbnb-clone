@@ -12,5 +12,5 @@ User.destroy_all
 
 nick = User.create(email: "nick@gmail.com", password: "123456")
 roy = User.create(email: "roy@gmail.com", password: "123456")
-Couch.create(address: 'Barcelona', price: 100, user: nick)
-Couch.create(address: 'Leuven', price: 50, user: roy)
+Couch.create(title: 'couch1', address: 'Barcelona', price: 100, user: nick, picture: 'x')
+Couch.create(title: 'couch2',address: 'Leuven', price: 50, user: roy, picture: 'x')

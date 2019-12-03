@@ -3,9 +3,10 @@
   <% @couches.each do |couch| %>
   <!-- <p> <%= link_to couch.address, couch_path(couch) %> </p>
   <p> <%= couch.price %> </p> -->
+   <p> <%= couch.photo %> </p>
     <%= render "shared/card", couch: couch %>
   <% end %>
   <%= link_to new_couch_path, class:"btn btn-flat mt-4" do %>
     <i class="fas fa-plus"></i>Add a couch
   <% end %>
-</div>
+<div>

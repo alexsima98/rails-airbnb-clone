@@ -1,5 +1,9 @@
 class CouchesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :home]
+
+  def home
+  end
+
   def index
     @couches = Couch.all
   end
@@ -13,18 +17,16 @@ class CouchesController < ApplicationController
   end
 
   def create
-
     @couch = Couch.new(couches_params)
-    # remember to change to show
     @couch.user = current_user
     if @couch.save
-      redirect_to couches_path
+      redirect_to couch_path
     else
       render :new
     end
   end
 
   def couches_params
-    params.require(:couch).permit(:address, :price)
+    params.require(:couch).permit(:address, :price, :photo)
   end
 end

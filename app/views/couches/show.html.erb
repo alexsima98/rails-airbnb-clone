@@ -1,4 +1,12 @@
-<%= @couch.title %>
-<%= @couch.address %>
-<%= @couch.price %>
-<%= cl_image_tag @couch.photo %>
+
+<div class="container">
+  <%= render "shared/card", couch: @couch %>
+  <div class="d-flex justify-content-between">
+    <%= link_to couches_path, class:"btn btn-flat mt-2" do %>
+      <i class="fas fa-undo-alt"></i> Go back to search
+    <% end %>
+    <%= link_to couches_path, class:"btn btn-flat mt-2" do %>
+      <i class="far fa-calendar-check"></i> Book this couch
+    <% end %>
+  </div>
+</div>

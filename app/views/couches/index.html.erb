@@ -1,0 +1,8 @@
+
+
+<% @couches.each do |couch| %>
+  <p> <%= link_to couch.address, couch_path(couch) %> </p>
+  <p> <%= couch.price %> </p>
+<% end %>
+
+<%= link_to "Make a new couch", new_couch_path %>

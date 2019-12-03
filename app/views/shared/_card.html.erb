@@ -1,5 +1,5 @@
 <div class="card-trip mt-4">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <%= cl_image_tag couch.photo %>
   <div class="card-trip-infos">
     <div>
       <h2><%= link_to couch.address, couch_path(couch) %></h2>

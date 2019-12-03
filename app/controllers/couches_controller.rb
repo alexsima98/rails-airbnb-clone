@@ -20,13 +20,13 @@ class CouchesController < ApplicationController
     @couch = Couch.new(couches_params)
     @couch.user = current_user
     if @couch.save
-      redirect_to couch_path
+      redirect_to couch_path(@couch)
     else
       render :new
     end
   end
 
   def couches_params
-    params.require(:couch).permit(:address, :price, :photo)
+    params.require(:couch).permit(:address, :price, :photo, :title)
   end
 end

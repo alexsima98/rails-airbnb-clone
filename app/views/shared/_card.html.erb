@@ -1,11 +1,13 @@
+<%= link_to couch_path(couch), class: 'card-trip-link' do %>
 <div class="card-trip mt-4">
   <%= cl_image_tag couch.photo %>
   <div class="card-trip-infos">
     <div>
-      <h2><%= link_to couch.address, couch_path(couch) %></h2>
-      <p>Short description here!</p>
+      <h2><%= couch.title %></h2>
+      <p><%= couch.address %></p>
     </div>
     <h2 class="card-trip-pricing"><%= couch.price %>$</h2>
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
   </div>
 </div>
+<% end %>

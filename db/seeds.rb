@@ -14,7 +14,7 @@ nick = User.create(email: "nick@gmail.com", password: "123456")
 roy = User.create(email: "roy@gmail.com", password: "123456")
 alex = User.create(email: "alex@gmail.com", password: "123456")
 # 10.times do
-Couch.create(title: 'couch1', address: 'Joburg', price: 100, user: nick, remote_photo_url: "https://source.unsplash.com/random")
+Couch.create(title: 'couch1', address: 'Joburg', price: 100, user: nick, remote_photo_url: "https://source.unsplash.com/random", description: " this is the best couch")
 Couch.create(title: 'couch2',address: 'Madrid', price: 50, user: roy, remote_photo_url: "https://source.unsplash.com/random")
 Couch.create(title: 'couch3',address: 'Leuven', price: 50, user: alex, remote_photo_url: "https://source.unsplash.com/random")
 Couch.create(title: 'couch4',address: 'Barcelona', price: 50, user: nick, remote_photo_url: "https://source.unsplash.com/random")

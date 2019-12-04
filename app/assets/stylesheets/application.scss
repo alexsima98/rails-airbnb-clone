@@ -2,6 +2,7 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
+@import "config/utilities";
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
@@ -12,7 +13,9 @@
 @import "components/index";
 @import "pages/index";
 
+$orange:#F88A2B;
+
 html, body {
   max-width: 100%;
   overflow-x: hidden;
-}
+

@@ -11,3 +11,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}

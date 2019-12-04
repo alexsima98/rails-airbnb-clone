@@ -1,11 +1,15 @@
-
-<div class="container">
-  <% @couches.each do |couch| %>
-  <!-- <p> <%= link_to couch.address, couch_path(couch) %> </p>
-  <p> <%= couch.price %> </p> -->
-    <%= render "shared/card", couch: couch %>
-  <% end %>
-  <%= link_to new_couch_path, class:"btn btn-flat mt-4" do %>
-    <i class="fas fa-plus"></i>Add a couch
-  <% end %>
-<div>
+<div class="container ">
+  <div class="row">
+    <% @couches.each do |couch| %>
+    <div class="col-6">
+    <!-- <p> <%= link_to couch.address, couch_path(couch) %> </p>
+    <p> <%= couch.price %> </p> -->
+      <%= render "shared/card", couch: couch %>
+    </div>
+    <% end %>
+    </div>
+    <%= link_to new_couch_path, class:"btn btn-flat mt-4" do %>
+      <i class="fas fa-plus"> </i> Add a couch
+    <% end %>
+  <div>
+</div>

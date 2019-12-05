@@ -6,11 +6,26 @@ class CouchesController < ApplicationController
 
   def index
     if params[:query].present?
-      @couches = Couch.where("address ILIKE ?", "%#{params[:query]}%")
+      @couches = Couch.geocoded.where("address ILIKE ?", "%#{params[:query]}%")
     else
-      @couches = Couch.all
+      @couches = Couch.geocoded
+    end
+    @markers = @couches.map do |couch| {
+      lat: couch.latitude,
+      lng: couch.longitude
+    }
     end
   end
+
+    # def index
+    # @couches = Couch.geocoded #returns flats with coordinates
+
+    # @markers = @flats.map do |flat|
+    #   {
+    #     lat: flat.latitude,
+    #     lng: flat.longitude
+    #   }
+    # end
 
   def show
     @couch = Couch.find(params[:id])

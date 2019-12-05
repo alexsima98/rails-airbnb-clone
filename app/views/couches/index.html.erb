@@ -1,14 +1,29 @@
-<div class="container ">
-  <div class="row">
-    <% @couches.each do |couch| %>
-    <div class="col-6">
-    <!-- <p> <%= link_to couch.address, couch_path(couch) %> </p>
-    <p> <%= couch.price %> </p> -->
-      <%= render "shared/card", couch: couch %>
+<div class="container-fluid d-flex mx-5">
+  <div>
+    <div class="row">
+      <% @couches.each do |couch| %>
+      <div class="col-6">
+      <!-- <p> <%= link_to couch.address, couch_path(couch) %> </p>
+      <p> <%= couch.price %> </p> -->
+        <%= render "shared/card", couch: couch %>
+      </div>
+      <% end %>
     </div>
-    <% end %>
+      <%= link_to new_couch_path, class:"btn btn-flat mt-4" do %>
+        <i class="fas fa-plus"> </i> Add a couch
+      <% end %>
+  </div>
+  <div class= "mx-5 my-4">
+    <div
+      id="map"
+      style="height: 100vh;
+      width: 600px;
+      position: sticky;
+      top: 0;
+      right: 0;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-    <%= link_to new_couch_path, class:"btn btn-flat mt-4" do %>
-      <i class="fas fa-plus"> </i> Add a couch
-    <% end %>
+  </div>
 </div>
+

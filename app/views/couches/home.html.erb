@@ -3,16 +3,18 @@
     <div class="row">
       <div class="col-4">
 
-    <h1>CouchCrash brings <strong>crazy experiences</strong> to <strong>open minded people</strong>!</h1>
-    <p>Search for a couch!</p>
-    <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-      <div class="search-form-control form-group d-flex justify-content-start">
-        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-      </div>
-        <%= link_to couches_path, class:"btn btn-flat" do %>
-          <i class="fas fa-search"></i>Search
+        <h1>CouchCrash<br>A warm seat for anyone, anywhere</h1>
+        <p>Search for a couch</p>
+        <%= form_tag couches_path, method: :get do %>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Location"
+          %>
+            <%= button_tag(type: "submit", class: "btn btn-flat") do %>
+              <i class="fas fa-search"></i> Search
+            <% end %>
         <% end %>
-    </form>
       </div>
     </div>
   </div>

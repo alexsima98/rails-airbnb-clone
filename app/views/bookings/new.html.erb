@@ -1,0 +1,25 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @couch.photo %>'); background-size: cover;">
+<div class="container p-2">
+  <div class="row justify-content-center">
+    <div class="col-5 bg-white m-2 p-3 d-flex flex-column bd-highlight justify-content-between cardss">
+     <h3> <i class="fas fa-couch"></i> Your couch: <%= @couch.title %> </h3>
+     <h3> <i class="fas fa-map-pin"></i> Your location: <%= @couch.address %> </h3>
+     <h3> <i class="far fa-smile"></i> About: <%= @couch.description %> </h3>
+    </div>
+    <div class="col-5 bg-white p-3 m-2">
+      <%= simple_form_for([@couch, @booking]) do |f| %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+      <% end %>
+      <div class="d-flex justify-content-center mt-4">
+        <%= link_to couches_path, class:"btn btn-ghost mt-2 mr-4" do %>
+          <i class="fas fa-undo-alt"></i> Go back to search
+        <% end %>
+        <%= link_to  couch_bookings_url, class:"btn btn-flat mt-2" do %>
+          <i class="far fa-calendar-check"></i> Book this couch
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

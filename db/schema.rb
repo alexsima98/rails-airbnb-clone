@@ -9,7 +9,6 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
 ActiveRecord::Schema.define(version: 2019_12_05_125340) do
 
   # These are extensions that must be enabled in order to support this database
@@ -22,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_12_05_125340) do
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status", default: "Pending"
     t.index ["couch_id"], name: "index_bookings_on_couch_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end

@@ -5,7 +5,11 @@ class CouchesController < ApplicationController
   end
 
   def index
-    @couches = Couch.all
+    if params[:query].present?
+      @couches = Couch.where("address ILIKE ?", "%#{params[:query]}%")
+    else
+      @couches = Couch.all
+    end
   end
 
   def show

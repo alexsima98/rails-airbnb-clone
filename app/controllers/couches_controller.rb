@@ -10,25 +10,19 @@ class CouchesController < ApplicationController
     else
       @couches = Couch.geocoded
     end
-    @markers = @couches.map do |couch| {
-      lat: couch.latitude,
-      lng: couch.longitude
-    }
+    @markers = @couches.map do |couch|
+      {
+        lat: couch.latitude,
+        lng: couch.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { couch: couch })
+        # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+      }
     end
   end
 
-    # def index
-    # @couches = Couch.geocoded #returns flats with coordinates
-
-    # @markers = @flats.map do |flat|
-    #   {
-    #     lat: flat.latitude,
-    #     lng: flat.longitude
-    #   }
-    # end
-
   def show
     @couch = Couch.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
@@ -44,6 +38,8 @@ class CouchesController < ApplicationController
       render :new
     end
   end
+
+  private
 
   def couches_params
     params.require(:couch).permit(:address, :price, :photo, :title, :description)

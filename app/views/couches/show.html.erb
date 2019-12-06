@@ -1,16 +1,44 @@
+<!-- <div class="banner" style="background-image: height:100vh,rgba(0,0,0,0.4)), url('<%= cl_image_path @couch.photo %>'); background-size: cover;">
+  <div class="row">
+
+
+    <div class="col-6 " style="font-scale: 1.33;">
+    <%= cl_image_tag @couch.photo %>
+      <h1><%= @couch.title %></h1>
+      <h4><%= @couch.description %></h4>
+    </div>
+</div>
+</div> -->
 
 <div class="container">
-  <div class="row justify-content-center">
+  <div class="row mt-4">
     <div class="col-6">
-  <%= render "shared/card", couch: @couch %>
+      <div class="card">
+        <%=  cl_image_tag @couch.photo, class: 'card-img-top'%>
+        <div class="card-body">
+          <h1 class="card-title"><%= @couch.title %></h1>
+          <p class ="card-text"><%=@couch.address%></p>
+          <p class="card-text"><%= @couch.description %></p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-6">
+      <%= simple_form_for([@couch, @booking]) do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <div class="d-flex justify-content-between">
+        <%= link_to couches_path, class:"btn btn-ghost mt-2 mr-4" do %>
+        <i class="fas fa-undo-alt"></i> Go back to search
+        <% end %>
+      <%= f.submit class:"btn btn-flat mt-2" %>
+      <% end %>
+      </div>
+      <div class="d-flex justify-content-center mt-4">
+      </div>
+    </div>
   </div>
-  </div>
-  <div class="d-flex justify-content-center mt-4">
-    <%= link_to couches_path, class:"btn btn-ghost mt-2 mr-4" do %>
-      <i class="fas fa-undo-alt"></i> Go back to search
-    <% end %>
-    <%= link_to  new_couch_booking_path(@couch), class:"btn btn-flat mt-2" do %>
-      <i class="far fa-calendar-check"></i> Book this couch
-    <% end %>
-  </div>
+</div>
+</div>
 </div>

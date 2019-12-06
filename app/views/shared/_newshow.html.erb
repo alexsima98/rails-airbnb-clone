@@ -1,0 +1,16 @@
+<div class="container" style="background-image: height:100vh, linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.4)), url('<%= cl_image_path @couch.photo %>'); background-size: cover;">
+  <div class="row">
+
+    <div class="col-6">
+    </div>
+
+    <div class="col-6">
+      <div class="d-flex justify-content-center mt-4">
+        <%= link_to couches_path, class:"btn btn-ghost mt-2 mr-4" do %>
+          <i class="fas fa-undo-alt"></i> Go back to search
+        <% end %>
+        <%= link_to  couch_bookings_url, class:"btn btn-flat mt-2" do %>
+          <i class="far fa-calendar-check"></i> Book this couch
+        <% end %>
+      </div>
+</div>

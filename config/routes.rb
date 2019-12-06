@@ -7,4 +7,12 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only:[:show]
+  resources :bookings, only: [:edit, :update, :show] do
+    member do
+      patch '/accept', to: 'bookings#accept'
+      patch '/decline', to: 'bookings#decline'
+      patch '/cancel', to: 'bookings#cancel'
+    end
+  end
+  get '/dashboard', to: 'dashboard#show'
 end

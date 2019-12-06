@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Dashboard</h1>
+  <% current_user.bookings.each do |b| %>
+  <div class="card-product mt-4 ">
+    <%= cl_image_tag b.couch.photo %>
+    <div class="d-flex justify-content-between w-100 mr-3">
+    <div class="card-product-infos">
+      <h2><%= b.couch.title %></h2>
+      <p><%= b.couch.description %></p>
+      <p>Status: <strong><%= b.status %></strong></p>
+    </div>
+    <div class="justify-content-end">
+    <% if b.status == 'Pending' %>
+    <%= link_to "Accept", accept_booking_url(b), method: :patch, class:"btn btn-flat" %>
+    <%= link_to "Decline", decline_booking_url(b), method: :patch, class:"btn btn-flat" %>
+    <% elsif b.status != 'canceled' %>
+    <%= link_to "Cancel", cancel_booking_url(b), method: :patch, class:"btn btn-flat" %>
+    <% end %>
+  </div>
+  </div>
+  </div>
+  <% end %>
+</div>

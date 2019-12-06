@@ -9,11 +9,14 @@ class CouchesController < ApplicationController
       @couches = Couch.geocoded.where("address ILIKE ?", "%#{params[:query]}%")
     else
       @couches = Couch.geocoded
-    end
-    @markers = @couches.map do |couch| {
-      lat: couch.latitude,
-      lng: couch.longitude
-    }
+      @markers = @couches.map do |couch|
+        {
+          lat: couch.latitude,
+          lng: couch.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { couch: couch })
+          # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+        }
+      end
     end
   end
 
